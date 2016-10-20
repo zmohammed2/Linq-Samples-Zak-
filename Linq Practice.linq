@@ -1,7 +1,6 @@
 <Query Kind="Statements">
   <Connection>
     <ID>dc24ce84-1f58-4693-8ef1-f3d8a00d9708</ID>
-    <Persist>true</Persist>
     <Server>.</Server>
     <Database>eRestaurant</Database>
   </Connection>
@@ -79,6 +78,7 @@ select new
 from x in BillItems
 orderby x.Bill.TableID
 where x.Bill.TableID > 0
+     && x.Item.Active.Equals("True")
 select new {
              TableId = x.Bill.TableID,
 			 Decription = x.Item.Description,
